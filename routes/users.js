@@ -17,9 +17,9 @@ routes.post('/register',(req, res, next) => {
 
     User.addUser(newUser, (err, user) => {
         if(err){
-            res.json({succsess: false, message: 'Failed to register user'});
+            res.json({success: false, message: 'Failed to register user'});
         } else {
-            res.json({succsess: true, message: 'User register Successfuly'});
+            res.json({success: true, message: 'User register Successfuly'});
         }
     });
 
@@ -30,7 +30,7 @@ routes.post('/authenticate',(req, res, next) => {
     const username = req.body.username;
     const password = req.body.password;
     User.getUserByUsername(username, (err, user) => {
-        if(err) throw err;
+        if(err) res.status(500).send('Internal Server Error');
         if(!user){
             return res.json({success: false, message: 'User not found'});
         }
@@ -61,7 +61,13 @@ routes.post('/authenticate',(req, res, next) => {
 
 // Profile
 routes.get('/profile', passport.authenticate('jwt', {session: false}) ,(req, res, next) => {
-    res.json({user: req.user});
+    var user = {
+        name: req.user.name,
+        email: req.user.email,
+        username: req.user.username,
+        id: req.user._id
+    }
+    res.json({user: user});
 });
 
 

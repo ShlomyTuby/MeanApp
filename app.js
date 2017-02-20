@@ -18,6 +18,7 @@ mongoose.connection.on('connected', () => {
 
 mongoose.connection.on('error', (error) => {
     console.log('database ' + error);
+    return false;
 });
 
 
@@ -47,8 +48,8 @@ config.passport(passport);
 app.use('/users',users);
 
 // default get request
-app.get('/',(req, res) => {
-    res.send('Invalid route');
+app.get('*',(req, res) => {
+    res.sendFile(path.join(__dirname,'public/index.html'))
 });
 
 

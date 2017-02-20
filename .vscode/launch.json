@@ -7,30 +7,17 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "nodemon",
-            "cwd": "${workspaceRoot}",
-            "runtimeExecutable": "nodemon",
-            "runtimeArgs": [
-                "--debug=5858"
-            ],
-            "program": "${workspaceRoot}/app.js",
-            "restart": true,
-            "port": 5858,
-            "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen"
-        },
-        {
-            "type": "node",
-            "request": "launch",
             "name": "Launch Program",
             "program": "${workspaceRoot}\\app.js",
-            "cwd": "${workspaceRoot}"
+            "cwd": "${workspaceRoot}",
+            "outFiles": []
         },
         {
             "type": "node",
             "request": "attach",
             "name": "Attach to Process",
-            "port": 5858
+            "port": 5858,
+            "outFiles": []
         }
     ]
 }
