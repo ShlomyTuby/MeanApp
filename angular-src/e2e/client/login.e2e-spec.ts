@@ -62,8 +62,8 @@ describe('Login Page', function() {
     page.setInputValue('username','shalomt');
     page.submitForm();
     page.getFlashMessage().then( res => {
-      expect(res.type).toEqual('info');
-      expect(res.text).toContain('Login Seccessfuly');
+      expect(res.type).toEqual('success');
+      expect(res.text).toContain('Login Successfuly');
     });
   });
 

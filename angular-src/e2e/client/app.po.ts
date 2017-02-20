@@ -1,4 +1,4 @@
-import { browser, element, by, promise, $, protractor } from 'protractor';
+import { browser, element, by, promise, $, protractor, until } from 'protractor';
 
 export class AngularSrcPage {
   navigateTo(innerUrl?: string, reset?: boolean) {
@@ -26,6 +26,8 @@ export class AngularSrcPage {
   }
 
   getFlashMessage(): any {
+
+    browser.wait(until.elementLocated(by.css('.flash-message')));
 
     let p = new promise.Deferred();
     var m = browser.driver.findElement(by.css('.flash-message'));
