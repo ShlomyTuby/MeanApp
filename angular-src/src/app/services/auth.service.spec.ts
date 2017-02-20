@@ -12,7 +12,8 @@ describe('AuthService', () => {
     });
   });
 
-  it('should ...', inject([AuthService], (service: AuthService) => {
+  it('should decleare', inject([AuthService], (service: AuthService) => {
     expect(service).toBeTruthy();
   }));
+
 });
