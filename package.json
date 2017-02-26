@@ -4,8 +4,11 @@
   "description": "MEAN stack authentication app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "test": "cd angular-src && ng test",
+    "start": "node app",
+    "build": "cd angular-src && ng build",
+    "e2e": "cd angular-src && ng e2e",
+    "serve": "cd angular-src && ng serve"
   },
   "author": "Shalom Tuby",
   "license": "ISC",
